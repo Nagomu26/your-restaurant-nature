@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 39% 93%;
+    --foreground: 70 5% 24%;
+    --card: 40 35% 98%;
+    --card-foreground: 70 5% 24%;
+    --popover: 40 35% 98%;
+    --popover-foreground: 70 5% 24%;
+    --primary: 95 29% 33%;
+    --primary-foreground: 40 39% 93%;
+    --secondary: 100 15% 61%;
+    --secondary-foreground: 70 5% 24%;
+    --muted: 40 39% 93%;
+    --muted-foreground: 70 4% 40%;
+    --accent: 16 53% 54%;
+    --accent-foreground: 40 39% 93%;
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 42 30% 84%;
+    --input: 42 30% 84%;
+    --ring: 16 53% 54%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  section[id],
+  footer[id] {
+    scroll-margin-top: 4.5rem;
+  }
+
+  body {
+    background-color: #f6f1e7;
+    color: #3b3a34;
+    font-family: Poppins, ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: #556b45;
+    color: #f6f1e7;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f6f1e7;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #ddd3bc;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8fa580;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #556b45;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  .closeable {
+    display: inline;
+  }
+
+  /* Formas orgánicas (blobs) */
+  .blob-1 {
+    border-radius: 58% 42% 55% 45% / 52% 58% 42% 48%;
+  }
+  .blob-2 {
+    border-radius: 44% 56% 62% 38% / 58% 44% 56% 42%;
+  }
+
+  /* Franja ocupada en la rejilla de horas */
+  .slot-occupied {
+    background-image: radial-gradient(circle, rgba(143, 165, 128, 0.7) 1.5px, transparent 1.5px);
+    background-size: 8px 8px;
+    background-color: rgba(221, 211, 188, 0.4);
+  }
+
+  .day-option,
+  .slot-option,
+  .service-option {
+    transition: all 0.2s ease;
+  }
+  .day-option:hover,
+  .slot-option:hover,
+  .service-option:hover {
+    transform: translateY(-1px);
+  }
+  .slot-option:disabled:hover,
+  .day-option:focus-visible,
+  .service-option:focus-visible {
+    transform: none;
+  }
+
+  /* Conector visual entre pasos del formulario */
+  .step-badge {
+    background: #556b45;
+    color: #f6f1e7;
+  }
+
+  /* Estado SELECCIONADO de día / hora / servicio */
+  .seleccionado {
+    background: #556b45 !important;
+    border-color: #556b45 !important;
+    box-shadow:
+      0 0 0 2px rgba(85, 107, 69, 0.25),
+      0 16px 30px -16px rgba(85, 107, 69, 0.7) !important;
+    color: #f6f1e7 !important;
+  }
+  .seleccionado,
+  .seleccionado span {
+    color: #f6f1e7 !important;
+  }
+
+  /* Tarjetas con elevación */
+  .card-lift {
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-4px);
+    border-color: rgba(143, 165, 128, 0.8);
+    box-shadow: 0 24px 50px -30px rgba(59, 58, 52, 0.35);
+  }
+
+  /* Revelado de secciones */
+  .reveal-target {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+  .reveal-target.reveal-in {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-target {
+      opacity: 1;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+}
