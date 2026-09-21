@@ -25,6 +25,11 @@ export const CONFIG = {
   nif: "",
   dominio: "https://TU-DOMINIO.com",
   webhookToken: "hbbk-r65j9hj3-bwan4kpy",
+  // --- Redes sociales (pon aquí las URLs reales de cada cliente; vacío = se oculta) ---
+  instagram: "https://instagram.com/yournegocio",
+  facebook: "https://facebook.com/yournegocio",
+  tiktok: "https://tiktok.com/@yournegocio",
+  youtube: "",
 } as const;
 
 export type Config = typeof CONFIG;
